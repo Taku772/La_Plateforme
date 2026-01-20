@@ -1,0 +1,24 @@
+= Git
+
+Git is a versioning software. Concretely, it's an essential tool to collaborate
+and store all the details about code modifications on your repository.
+
+
+== Guides
+
+* link:./1.install.adoc[install]
+* link:./2.configuration.adoc[configuration]
+
+
+== Challenges
+
+
+* link:./3.training.adoc[training]
+* link:./4.exquisite_corpse.adoc[exquisite corpse]
+
+
+== Ressources for undoing, fixing, removing commit etc..
+
+* [oshitgit.com](https://ohshitgit.com/en)
+* [GitfixIm, choose your own aventure](http://sethrobertson.github.io/GitFixUm/fixup.html)
+

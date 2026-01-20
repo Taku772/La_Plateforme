@@ -1,0 +1,1240 @@
+building busybox-1.18.4 in directory /usr/local/tinderbox/8.2-FreeBSD
+build started at Sun Mar 13 10:06:58 UTC 2011
+port directory: /usr/ports/sysutils/busybox
+building for:  8.2-RELEASE i386
+maintained by: utisoft@gmail.com
+Makefile ident: $FreeBSD: ports/sysutils/busybox/Makefile,v 1.10 2011/02/14 00:49:58 sahil Exp $
+prefixes: LOCALBASE=usr/local PREFIX=/usr/local
+Begin Configuration:
+---Begin Environment---
+ARCH=i386
+PACKAGE_BUILDING=1
+USER=root
+CCACHE_DIR=
+BRANCH=RELEASE
+CCACHE_NOLINK=1
+HOST_WORKDIR=
+BATCH=1
+OLDPWD=/
+HOME=/root
+LOG_DIRECTORY=/root/log
+PAGER=more
+LOG_DOCOPY=1
+PKGZIPCMD=bzip2
+HAVE_MOTIF=1
+FTP_TIMEOUT=900
+HTTP_TIMEOUT=900
+defaultUpdateHost=cvsup6.us.FreeBSD.org
+pb=/usr/local/tinderbox
+DISTFILE_CACHE=/root/distfiles
+OSREL=8.2
+defaultUpdateType=CSUP
+BLOCKSIZE=K
+TINDERD_LOGFILE=/dev/null
+PORTOBJFORMAT=elf
+WRKDIRPREFIX=/work
+DISTDIR=/tmp/distfiles
+DISTCACHE=/distcache
+CCACHE_LOGFILE=
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
+PACKAGES=/tmp/packages
+TIMEOUT=7200
+PKGSUFFIX=.tbz
+OSVERSION=802000
+OPTIONS_ENABLED=0
+__DSVERSION__=3.2.1
+TINDERD_SLEEPTIME=120
+UNAME_n=tinderbox.host
+__MKLVL__=1
+CCACHE_JAIL=0
+LOCALBASE=/usr/local
+CCACHE_MAX_SIZE=1G
+DISTFILE_URI=
+X_WINDOW_SYSTEM=xorg
+MASTER_SITE_OVERRIDE=file:///distcache/${DIST_SUBDIR}/ 
+OPTIONS_DIR=
+UNAME_r=8.2-RELEASE
+USA_RESIDENT=YES
+UNAME_s=FreeBSD
+PARALLEL_PACKAGE_BUILD=1
+PWD=/usr/ports/sysutils/busybox
+PASSWORD='I_like_the_terminal_<3'
+UNAME_v=FreeBSD 8.2-RELEASE #0: Sun Mar 13 10:05:38 UTC 2011    root@tinderbox.host:/usr/src/sys/magic/kernel/path
+FTP_PASSIVE_MODE=yes
+CCACHE_ENABLED=0
+INDEXFILE=INDEX-8
+---End Environment---
+
+---Begin OPTIONS List---
+---End OPTIONS List---
+
+End Configuration.
+FETCH_DEPENDS=
+PATCH_DEPENDS=
+EXTRACT_DEPENDS=
+BUILD_DEPENDS=libiconv-1.13.1_1.tbz gettext-0.18.1.1.tbz gsed-4.2.1_2.tbz gmake-3.81_4.tbz
+RUN_DEPENDS=
+add_pkg
+================================================================
+====================<phase 1: make checksum>====================
+===>  License check disabled, port has not defined LICENSE
+=> busybox-1.18.4.tar.bz2 doesn't seem to exist in /tmp/distfiles/.
+=> Attempting to fetch file:///distcache//busybox-1.18.4.tar.bz2
+busybox-1.18.4.tar.bz2                                2080 kB  197 MBps
+=> SHA256 Checksum OK for busybox-1.18.4.tar.bz2.
+================================================================
+====================<phase 2: make extract>====================
+add_pkg
+===>  License check disabled, port has not defined LICENSE
+===>  Extracting for busybox-1.18.4
+=> SHA256 Checksum OK for busybox-1.18.4.tar.bz2.
+================================================================
+====================<phase 3: make patch>====================
+add_pkg
+===>  Patching for busybox-1.18.4
+===>  Applying FreeBSD patches for busybox-1.18.4
+================================================================
+====================<phase 4: make build>====================
+add_pkg libiconv-1.13.1_1.tbz gettext-0.18.1.1.tbz gsed-4.2.1_2.tbz gmake-3.81_4.tbz
+adding dependencies
+pkg_add libiconv-1.13.1_1.tbz
+pkg_add gettext-0.18.1.1.tbz
+pkg_add gsed-4.2.1_2.tbz
+pkg_add gmake-3.81_4.tbz
+===>   busybox-1.18.4 depends on executable: gsed - found
+===>   busybox-1.18.4 depends on executable: gmake - found
+===>  Configuring for busybox-1.18.4
+/bin/cp /a/ports/sysutils/busybox/files/data-.config /work/a/ports/sysutils/busybox/work/busybox-1.18.4/.config
+cd /work/a/ports/sysutils/busybox/work/busybox-1.18.4 && gmake oldconfig
+  HOSTCC  scripts/basic/fixdep
+  HOSTCC  scripts/basic/split-include
+  HOSTCC  scripts/basic/docproc
+  GEN     include/applets.h
+  GEN     include/usage.h
+  GEN     loginutils/Kbuild
+  GEN     loginutils/Config.in
+  GEN     init/Kbuild
+  GEN     init/Config.in
+  GEN     util-linux/Kbuild
+  GEN     util-linux/Config.in
+  GEN     util-linux/volume_id/Kbuild
+  GEN     miscutils/Kbuild
+  GEN     miscutils/Config.in
+  GEN     libbb/Kbuild
+  GEN     libbb/Config.in
+  GEN     shell/Kbuild
+  GEN     shell/Config.in
+  GEN     runit/Kbuild
+  GEN     runit/Config.in
+  GEN     libpwdgrp/Kbuild
+  GEN     editors/Kbuild
+  GEN     editors/Config.in
+  GEN     scripts/Kbuild
+  GEN     selinux/Kbuild
+  GEN     selinux/Config.in
+  GEN     findutils/Kbuild
+  GEN     findutils/Config.in
+  GEN     modutils/Kbuild
+  GEN     modutils/Config.in
+  GEN     archival/Kbuild
+  GEN     archival/Config.in
+  GEN     archival/libarchive/Kbuild
+  GEN     procps/Kbuild
+  GEN     procps/Config.in
+  GEN     e2fsprogs/Kbuild
+  GEN     e2fsprogs/Config.in
+  GEN     e2fsprogs/old_e2fsprogs/Kbuild
+  GEN     e2fsprogs/old_e2fsprogs/Config.in
+  GEN     e2fsprogs/old_e2fsprogs/e2p/Kbuild
+  GEN     e2fsprogs/old_e2fsprogs/uuid/Kbuild
+  GEN     e2fsprogs/old_e2fsprogs/blkid/Kbuild
+  GEN     e2fsprogs/old_e2fsprogs/ext2fs/Kbuild
+  GEN     sysklogd/Kbuild
+  GEN     sysklogd/Config.in
+  GEN     networking/Kbuild
+  GEN     networking/Config.in
+  GEN     networking/udhcp/Kbuild
+  GEN     networking/udhcp/Config.in
+  GEN     networking/libiproute/Kbuild
+  GEN     applets/Kbuild
+  GEN     coreutils/Kbuild
+  GEN     coreutils/Config.in
+  GEN     coreutils/libcoreutils/Kbuild
+  GEN     debianutils/Kbuild
+  GEN     debianutils/Config.in
+  GEN     printutils/Kbuild
+  GEN     printutils/Config.in
+  GEN     mailutils/Kbuild
+  GEN     mailutils/Config.in
+  GEN     console-tools/Kbuild
+  GEN     console-tools/Config.in
+  HOSTCC  scripts/kconfig/conf.o
+  HOSTCC  scripts/kconfig/kxgettext.o
+  HOSTCC  scripts/kconfig/mconf.o
+scripts/kconfig/mconf.c: In function 'main':
+scripts/kconfig/mconf.c:1048: warning: statement with no effect
+scripts/kconfig/mconf.c:1049: warning: statement with no effect
+  SHIPPED scripts/kconfig/zconf.tab.c
+  SHIPPED scripts/kconfig/lex.zconf.c
+  SHIPPED scripts/kconfig/zconf.hash.c
+  HOSTCC  scripts/kconfig/zconf.tab.o
+  HOSTLD  scripts/kconfig/conf
+scripts/kconfig/conf -o Config.in
+#
+# using defaults found in .config
+#
+*
+* Busybox Configuration
+*
+*
+* Busybox Settings
+*
+*
+* General Configuration
+*
+Enable options for full-blown desktop systems (DESKTOP) [N/y/?] n
+Provide compatible behavior for rare corner cases (bigger code) (EXTRA_COMPAT) [N/y/?] n
+Enable obsolete features removed before SUSv3 (INCLUDE_SUSv2) [Y/n/?] y
+Avoid using GCC-specific code constructs (USE_PORTABLE_CODE) [Y/n/?] y
+Enable Linux-specific applets and features (PLATFORM_LINUX) [N/y/?] n
+Buffer allocation policy
+> 1. Allocate with Malloc (FEATURE_BUFFERS_USE_MALLOC)
+  2. Allocate on the Stack (FEATURE_BUFFERS_GO_ON_STACK)
+  3. Allocate in the .bss section (FEATURE_BUFFERS_GO_IN_BSS)
+choice[1-3?]: 1
+Show terse applet usage messages (SHOW_USAGE) [Y/n/?] y
+  Show verbose applet usage messages (FEATURE_VERBOSE_USAGE) [Y/n/?] y
+  Store applet usage messages in compressed form (FEATURE_COMPRESS_USAGE) [Y/n/?] y
+Support --install [-s] to install applet links at runtime (FEATURE_INSTALLER) [Y/n/?] y
+Don't use /usr (INSTALL_NO_USR) [N/y/?] n
+Enable locale support (system needs locale for this to work) (LOCALE_SUPPORT) [Y/n/?] y
+Support Unicode (UNICODE_SUPPORT) [Y/n/?] y
+  Use libc routines for Unicode (else uses internal ones) (UNICODE_USING_LOCALE) [N/y/?] n
+  Check $LANG environment variable (FEATURE_CHECK_UNICODE_IN_ENV) [N/y/?] n
+  Character code to substitute unprintable characters with (SUBST_WCHAR) [63] 63
+  Range of supported Unicode characters (LAST_SUPPORTED_WCHAR) [767] 767
+  Allow zero-width Unicode characters on output (UNICODE_COMBINING_WCHARS) [N/y/?] n
+  Allow wide Unicode characters on output (UNICODE_WIDE_WCHARS) [N/y/?] n
+  Bidirectional character-aware line input (UNICODE_BIDI_SUPPORT) [N/y/?] n
+  Make it possible to enter sequences of chars which are not Unicode (UNICODE_PRESERVE_BROKEN) [N/y/?] n
+Support for --long-options (LONG_OPTS) [Y/n/?] y
+Use the devpts filesystem for Unix98 PTYs (FEATURE_DEVPTS) [Y/n/?] y
+Clean up all memory before exiting (usually not needed) (FEATURE_CLEAN_UP) [N/y/?] n
+Support wtmp file (FEATURE_WTMP) [N/y/?] n
+Support utmp file (FEATURE_UTMP) [N/y/?] n
+Support writing pidfiles (FEATURE_PIDFILE) [Y/n/?] y
+Support for SUID/SGID handling (FEATURE_SUID) [Y/n/?] y
+  Runtime SUID/SGID configuration via /etc/busybox.conf (FEATURE_SUID_CONFIG) [Y/n/?] y
+    Suppress warning message if /etc/busybox.conf is not readable (FEATURE_SUID_CONFIG_QUIET) [Y/n/?] y
+exec prefers applets (FEATURE_PREFER_APPLETS) [N/y/?] n
+Path to BusyBox executable (BUSYBOX_EXEC_PATH) [/proc/self/exe] /proc/self/exe
+*
+* Build Options
+*
+Build BusyBox as a static binary (no shared libs) (STATIC) [N/y/?] n
+  Build BusyBox as a position independent executable (PIE) [N/y/?] n
+Force NOMMU build (NOMMU) [N/y/?] n
+Build shared libbusybox (BUILD_LIBBUSYBOX) [N/y/?] n
+Build with Large File Support (for accessing files > 2 GB) (LFS) [Y/n/?] y
+Cross Compiler prefix (CROSS_COMPILER_PREFIX) [] 
+Additional CFLAGS (EXTRA_CFLAGS) [] 
+*
+* Debugging Options
+*
+Build BusyBox with extra Debugging symbols (DEBUG) [N/y/?] n
+Abort compilation on any warning (WERROR) [N/y/?] n
+Additional debugging library
+> 1. None (NO_DEBUG_LIB)
+  2. Dmalloc (DMALLOC)
+  3. Electric-fence (EFENCE)
+choice[1-3?]: 1
+*
+* Installation Options ("make install" behavior)
+*
+What kind of applet links to install
+> 1. as soft-links (INSTALL_APPLET_SYMLINKS)
+  2. as hard-links (INSTALL_APPLET_HARDLINKS)
+  3. as script wrappers (INSTALL_APPLET_SCRIPT_WRAPPERS)
+  4. not installed (INSTALL_APPLET_DONT)
+choice[1-4?]: 1
+BusyBox installation prefix (PREFIX) [./_install] ./_install
+*
+* Busybox Library Tuning
+*
+Minimum password length (PASSWORD_MINLEN) [6] 6
+MD5: Trade bytes for speed (0:fast, 3:slow) (MD5_SIZE_VS_SPEED) [2] 2
+Faster /proc scanning code (+100 bytes) (FEATURE_FAST_TOP) [Y/n/?] y
+Support for /etc/networks (FEATURE_ETC_NETWORKS) [N/y/?] n
+Use termios to manipulate the screen (FEATURE_USE_TERMIOS) [Y/n/?] y
+Command line editing (FEATURE_EDITING) [Y/n/?] y
+  Maximum length of input (FEATURE_EDITING_MAX_LEN) [1024] 1024
+  vi-style line editing commands (FEATURE_EDITING_VI) [N/y/?] n
+  History size (FEATURE_EDITING_HISTORY) [30] 30
+  History saving (FEATURE_EDITING_SAVEHISTORY) [N/y/?] n
+  Tab completion (FEATURE_TAB_COMPLETION) [Y/n/?] y
+    Username completion (FEATURE_USERNAME_COMPLETION) [N/y/?] n
+  Fancy shell prompts (FEATURE_EDITING_FANCY_PROMPT) [N/y/?] n
+  Query cursor position from terminal (FEATURE_EDITING_ASK_TERMINAL) [N/y/?] n
+Non-POSIX, but safer, copying to special nodes (FEATURE_NON_POSIX_CP) [Y/n/?] y
+Give more precise messages when copy fails (cp, mv etc) (FEATURE_VERBOSE_CP_MESSAGE) [N/y/?] n
+Copy buffer size, in kilobytes (FEATURE_COPYBUF_KB) [4] 4
+Use ioctl names rather than hex values in error messages (IOCTL_HEX2STR_ERROR) [Y/n/?] y
+Support infiniband HW (FEATURE_HWIB) [Y/n/?] y
+*
+* Applets
+*
+*
+* Archival Utilities
+*
+Make tar, rpm, modprobe etc understand .xz data (FEATURE_SEAMLESS_XZ) [Y/n/?] y
+Make tar, rpm, modprobe etc understand .lzma data (FEATURE_SEAMLESS_LZMA) [Y/n/?] y
+Make tar, rpm, modprobe etc understand .bz2 data (FEATURE_SEAMLESS_BZ2) [Y/n/?] y
+Make tar, rpm, modprobe etc understand .gz data (FEATURE_SEAMLESS_GZ) [Y/n/?] y
+Make tar and gunzip understand .Z data (FEATURE_SEAMLESS_Z) [Y/n/?] y
+ar (AR) [Y/n/?] y
+  Support for long filenames (not needed for debs) (FEATURE_AR_LONG_FILENAMES) [Y/n/?] y
+  Support archive creation (FEATURE_AR_CREATE) [Y/n/?] y
+bunzip2 (BUNZIP2) [Y/n/?] y
+bzip2 (BZIP2) [Y/n/?] y
+cpio (CPIO) [Y/n/?] y
+  Support for archive creation (FEATURE_CPIO_O) [N/y/?] n
+dpkg (DPKG) [N/y/?] n
+dpkg_deb (DPKG_DEB) [N/y/?] n
+gunzip (GUNZIP) [Y/n/?] y
+gzip (GZIP) [Y/n/?] y
+  Enable long options (FEATURE_GZIP_LONG_OPTIONS) [Y/n/?] y
+lzop (LZOP) [Y/n/?] y
+  lzop compression levels 7,8,9 (not very useful) (LZOP_COMPR_HIGH) [N/y/?] n
+rpm2cpio (RPM2CPIO) [Y/n/?] y
+rpm (RPM) [Y/n/?] y
+tar (TAR) [Y/n/?] y
+  Enable archive creation (FEATURE_TAR_CREATE) [Y/n/?] y
+  Autodetect compressed tarballs (FEATURE_TAR_AUTODETECT) [Y/n/?] y
+  Enable -X (exclude from) and -T (include from) options) (FEATURE_TAR_FROM) [Y/n/?] y
+  Support for old tar header format (FEATURE_TAR_OLDGNU_COMPATIBILITY) [Y/n/?] y
+  Enable untarring of tarballs with checksums produced by buggy Sun tar (FEATURE_TAR_OLDSUN_COMPATIBILITY) [Y/n/?] y
+  Support for GNU tar extensions (long filenames) (FEATURE_TAR_GNU_EXTENSIONS) [Y/n/?] y
+  Enable long options (FEATURE_TAR_LONG_OPTIONS) [Y/n/?] y
+    Support for writing to an external program (FEATURE_TAR_TO_COMMAND) [Y/n/?] y
+  Enable use of user and group names (FEATURE_TAR_UNAME_GNAME) [N/y/?] n
+  Enable -m (do not preserve time) option (FEATURE_TAR_NOPRESERVE_TIME) [Y/n/?] y
+uncompress (UNCOMPRESS) [Y/n/?] y
+unlzma (UNLZMA) [Y/n/?] y
+  Optimize unlzma for speed (FEATURE_LZMA_FAST) [Y/n/?] y
+  Provide lzma alias which supports only unpacking (LZMA) [Y/n/?] y
+unxz (UNXZ) [Y/n/?] y
+  Provide xz alias which supports only unpacking (XZ) [Y/n/?] y
+unzip (UNZIP) [Y/n/?] y
+*
+* Coreutils
+*
+basename (BASENAME) [Y/n/?] y
+cat (CAT) [Y/n/?] y
+date (DATE) [N/y/?] n
+test (TEST) [Y/n/?] y
+  Extend test to 64 bit (FEATURE_TEST_64) [Y/n/?] y
+tr (TR) [Y/n/?] y
+  Enable character classes (such as [:upper:]) (FEATURE_TR_CLASSES) [Y/n/?] y
+  Enable equivalence classes (FEATURE_TR_EQUIV) [Y/n/?] y
+base64 (BASE64) [N/y/?] n
+cal (CAL) [Y/n/?] y
+catv (CATV) [Y/n/?] y
+chgrp (CHGRP) [Y/n/?] y
+chmod (CHMOD) [Y/n/?] y
+chown (CHOWN) [Y/n/?] y
+  Enable long options (FEATURE_CHOWN_LONG_OPTIONS) [Y/n/?] y
+chroot (CHROOT) [Y/n/?] y
+cksum (CKSUM) [Y/n/?] y
+comm (COMM) [Y/n/?] y
+cp (CP) [Y/n/?] y
+  Enable long options for cp (FEATURE_CP_LONG_OPTIONS) [Y/n/?] y
+cut (CUT) [Y/n/?] y
+dd (DD) [Y/n/?] y
+  Enable DD signal handling for status reporting (FEATURE_DD_SIGNAL_HANDLING) [Y/n/?] y
+    Enable the third status line upon signal (FEATURE_DD_THIRD_STATUS_LINE) [Y/n/?] y
+  Enable ibs, obs and conv options (FEATURE_DD_IBS_OBS) [Y/n/?] y
+df (DF) [N/y/?] n
+dirname (DIRNAME) [Y/n/?] y
+dos2unix/unix2dos (DOS2UNIX) [Y/n/?] y
+du (default blocksize of 512 bytes) (DU) [Y/n/?] y
+  Use a default blocksize of 1024 bytes (1K) (FEATURE_DU_DEFAULT_BLOCKSIZE_1K) [Y/n/?] y
+echo (basic SuSv3 version taking no options) (ECHO) [Y/n/?] y
+  Enable echo options (-n and -e) (FEATURE_FANCY_ECHO) [Y/n/?] y
+env (ENV) [Y/n/?] y
+  Enable long options (FEATURE_ENV_LONG_OPTIONS) [Y/n/?] y
+expand (EXPAND) [Y/n/?] y
+  Enable long options (FEATURE_EXPAND_LONG_OPTIONS) [Y/n/?] y
+expr (EXPR) [Y/n/?] y
+  Extend Posix numbers support to 64 bit (EXPR_MATH_SUPPORT_64) [Y/n/?] y
+false (FALSE) [Y/n/?] y
+fold (FOLD) [Y/n/?] y
+fsync (FSYNC) [Y/n/?] y
+head (HEAD) [Y/n/?] y
+  Enable head options (-c, -q, and -v) (FEATURE_FANCY_HEAD) [Y/n/?] y
+hostid (HOSTID) [Y/n/?] y
+id (ID) [Y/n/?] y
+install (INSTALL) [Y/n/?] y
+  Enable long options (FEATURE_INSTALL_LONG_OPTIONS) [Y/n/?] y
+length (LENGTH) [Y/n/?] y
+ln (LN) [Y/n/?] y
+logname (LOGNAME) [Y/n/?] y
+ls (LS) [Y/n/?] y
+  Enable filetyping options (-p and -F) (FEATURE_LS_FILETYPES) [Y/n/?] y
+  Enable symlinks dereferencing (-L) (FEATURE_LS_FOLLOWLINKS) [Y/n/?] y
+  Enable recursion (-R) (FEATURE_LS_RECURSIVE) [Y/n/?] y
+  Sort the file names (FEATURE_LS_SORTFILES) [Y/n/?] y
+  Show file timestamps (FEATURE_LS_TIMESTAMPS) [Y/n/?] y
+  Show username/groupnames (FEATURE_LS_USERNAME) [Y/n/?] y
+  Allow use of color to identify file types (FEATURE_LS_COLOR) [Y/n/?] y
+    Produce colored ls output by default (FEATURE_LS_COLOR_IS_DEFAULT) [Y/n/?] y
+md5sum (MD5SUM) [Y/n/?] y
+mkdir (MKDIR) [Y/n/?] y
+  Enable long options (FEATURE_MKDIR_LONG_OPTIONS) [Y/n/?] y
+mkfifo (MKFIFO) [Y/n/?] y
+mknod (MKNOD) [N/y/?] n
+mv (MV) [Y/n/?] y
+  Enable long options (FEATURE_MV_LONG_OPTIONS) [Y/n/?] y
+nice (NICE) [Y/n/?] y
+nohup (NOHUP) [Y/n/?] y
+od (OD) [Y/n/?] y
+printenv (PRINTENV) [Y/n/?] y
+printf (PRINTF) [Y/n/?] y
+pwd (PWD) [Y/n/?] y
+readlink (READLINK) [Y/n/?] y
+  Enable canonicalization by following all symlinks (-f) (FEATURE_READLINK_FOLLOW) [Y/n/?] y
+realpath (REALPATH) [Y/n/?] y
+rm (RM) [Y/n/?] y
+rmdir (RMDIR) [Y/n/?] y
+  Enable long options (FEATURE_RMDIR_LONG_OPTIONS) [N/y/?] n
+seq (SEQ) [Y/n/?] y
+sha1sum (SHA1SUM) [Y/n/?] y
+sha256sum (SHA256SUM) [Y/n/?] y
+sha512sum (SHA512SUM) [Y/n/?] y
+sleep (SLEEP) [Y/n/?] y
+  Enable multiple arguments and s/m/h/d suffixes (FEATURE_FANCY_SLEEP) [Y/n/?] y
+    Enable fractional arguments (FEATURE_FLOAT_SLEEP) [Y/n/?] y
+sort (SORT) [Y/n/?] y
+  Full SuSv3 compliant sort (support -ktcsbdfiozgM) (FEATURE_SORT_BIG) [Y/n/?] y
+split (SPLIT) [Y/n/?] y
+  Fancy extensions (FEATURE_SPLIT_FANCY) [Y/n/?] y
+stty (STTY) [N/y/?] n
+sum (SUM) [Y/n/?] y
+sync (SYNC) [Y/n/?] y
+tac (TAC) [N/y/?] n
+tail (TAIL) [Y/n/?] y
+  Enable extra tail options (-q, -s, -v, and -F) (FEATURE_FANCY_TAIL) [Y/n/?] y
+tee (TEE) [Y/n/?] y
+  Enable block I/O (larger/faster) instead of byte I/O (FEATURE_TEE_USE_BLOCK_IO) [Y/n/?] y
+touch (TOUCH) [Y/n/?] y
+true (TRUE) [Y/n/?] y
+tty (TTY) [Y/n/?] y
+uname (UNAME) [Y/n/?] y
+unexpand (UNEXPAND) [Y/n/?] y
+  Enable long options (FEATURE_UNEXPAND_LONG_OPTIONS) [Y/n/?] y
+uniq (UNIQ) [Y/n/?] y
+usleep (USLEEP) [Y/n/?] y
+uudecode (UUDECODE) [Y/n/?] y
+uuencode (UUENCODE) [Y/n/?] y
+wc (WC) [Y/n/?] y
+  Support very large files in wc (FEATURE_WC_LARGE) [Y/n/?] y
+whoami (WHOAMI) [Y/n/?] y
+yes (YES) [Y/n/?] y
+*
+* Common options for cp and mv
+*
+Preserve hard links (FEATURE_PRESERVE_HARDLINKS) [Y/n/?] y
+*
+* Common options for ls, more and telnet
+*
+Calculate terminal & column widths (FEATURE_AUTOWIDTH) [Y/n/?] y
+*
+* Common options for df, du, ls
+*
+Support for human readable output (example 13k, 23M, 235G) (FEATURE_HUMAN_READABLE) [Y/n/?] y
+*
+* Common options for md5sum, sha1sum, sha256sum, sha512sum
+*
+Enable -c, -s and -w options (FEATURE_MD5_SHA1_SUM_CHECK) [Y/n/?] y
+*
+* Console Utilities
+*
+clear (CLEAR) [Y/n/?] y
+reset (RESET) [Y/n/?] y
+resize (RESIZE) [Y/n/?] y
+  Print environment variables (FEATURE_RESIZE_PRINT) [Y/n/?] y
+*
+* Debian Utilities
+*
+mktemp (MKTEMP) [Y/n/?] y
+pipe_progress (PIPE_PROGRESS) [Y/n/?] y
+run-parts (RUN_PARTS) [Y/n/?] y
+  Enable long options (FEATURE_RUN_PARTS_LONG_OPTIONS) [Y/n/?] y
+  Support additional arguments (FEATURE_RUN_PARTS_FANCY) [Y/n/?] y
+start-stop-daemon (START_STOP_DAEMON) [N/y/?] n
+which (WHICH) [Y/n/?] y
+*
+* Editors
+*
+patch (PATCH) [Y/n/?] y
+awk (AWK) [Y/n/?] y
+  Enable math functions (requires libm) (FEATURE_AWK_LIBM) [Y/n/?] y
+cmp (CMP) [Y/n/?] y
+diff (DIFF) [Y/n/?] y
+  Enable long options (FEATURE_DIFF_LONG_OPTIONS) [Y/n/?] y
+  Enable directory support (FEATURE_DIFF_DIR) [Y/n/?] y
+ed (ED) [Y/n/?] y
+sed (SED) [Y/n/?] y
+vi (VI) [Y/n/?] y
+  Maximum screen width in vi (FEATURE_VI_MAX_LEN) [1024] 1024
+  Allow vi to display 8-bit chars (otherwise shows dots) (FEATURE_VI_8BIT) [Y/n/?] y
+  Enable ":" colon commands (no "ex" mode) (FEATURE_VI_COLON) [Y/n/?] y
+  Enable yank/put commands and mark cmds (FEATURE_VI_YANKMARK) [Y/n/?] y
+  Enable search and replace cmds (FEATURE_VI_SEARCH) [Y/n/?] y
+  Catch signals (FEATURE_VI_USE_SIGNALS) [Y/n/?] y
+  Remember previous cmd and "." cmd (FEATURE_VI_DOT_CMD) [Y/n/?] y
+  Enable -R option and "view" mode (FEATURE_VI_READONLY) [Y/n/?] y
+  Enable set-able options, ai ic showmatch (FEATURE_VI_SETOPTS) [Y/n/?] y
+  Support for :set (FEATURE_VI_SET) [Y/n/?] y
+  Handle window resize (FEATURE_VI_WIN_RESIZE) [Y/n/?] y
+  Use 'tell me cursor position' ESC sequence to measure window (FEATURE_VI_ASK_TERMINAL) [Y/n/?] y
+  Optimize cursor movement (FEATURE_VI_OPTIMIZE_CURSOR) [Y/n/?] y
+  Allow vi and awk to execute shell commands (FEATURE_ALLOW_EXEC) [Y/n/?] y
+*
+* Finding Utilities
+*
+find (FIND) [Y/n/?] y
+  Enable -print0: NUL-terminated output (FEATURE_FIND_PRINT0) [Y/n/?] y
+  Enable -mtime: modified time matching (FEATURE_FIND_MTIME) [Y/n/?] y
+  Enable -mmin: modified time matching by minutes (FEATURE_FIND_MMIN) [Y/n/?] y
+  Enable -perm: permissions matching (FEATURE_FIND_PERM) [Y/n/?] y
+  Enable -type: file type matching (file/dir/link/...) (FEATURE_FIND_TYPE) [Y/n/?] y
+  Enable -xdev: 'stay in filesystem' (FEATURE_FIND_XDEV) [Y/n/?] y
+  Enable -maxdepth N (FEATURE_FIND_MAXDEPTH) [Y/n/?] y
+  Enable -newer: compare file modification times (FEATURE_FIND_NEWER) [Y/n/?] y
+  Enable -inum: inode number matching (FEATURE_FIND_INUM) [Y/n/?] y
+  Enable -exec: execute commands (FEATURE_FIND_EXEC) [Y/n/?] y
+  Enable -user: username/uid matching (FEATURE_FIND_USER) [Y/n/?] y
+  Enable -group: group/gid matching (FEATURE_FIND_GROUP) [Y/n/?] y
+  Enable the 'not' (!) operator (FEATURE_FIND_NOT) [Y/n/?] y
+  Enable -depth (FEATURE_FIND_DEPTH) [Y/n/?] y
+  Enable parens in options (FEATURE_FIND_PAREN) [Y/n/?] y
+  Enable -size: file size matching (FEATURE_FIND_SIZE) [Y/n/?] y
+  Enable -prune: exclude subdirectories (FEATURE_FIND_PRUNE) [Y/n/?] y
+  Enable -delete: delete files/dirs (FEATURE_FIND_DELETE) [Y/n/?] y
+  Enable -path: match pathname with shell pattern (FEATURE_FIND_PATH) [Y/n/?] y
+  Enable -regex: match pathname with regex (FEATURE_FIND_REGEX) [Y/n/?] y
+  Enable -links: link count matching (FEATURE_FIND_LINKS) [Y/n/?] y
+grep (GREP) [Y/n/?] y
+  Enable extended regular expressions (egrep & grep -E) (FEATURE_GREP_EGREP_ALIAS) [Y/n/?] y
+  Alias fgrep to grep -F (FEATURE_GREP_FGREP_ALIAS) [Y/n/?] y
+  Enable before and after context flags (-A, -B and -C) (FEATURE_GREP_CONTEXT) [Y/n/?] y
+xargs (XARGS) [Y/n/?] y
+  Enable -p: prompt and confirmation (FEATURE_XARGS_SUPPORT_CONFIRMATION) [Y/n/?] y
+  Enable single and double quotes and backslash (FEATURE_XARGS_SUPPORT_QUOTES) [Y/n/?] y
+  Enable -x: exit if -s or -n is exceeded (FEATURE_XARGS_SUPPORT_TERMOPT) [Y/n/?] y
+  Enable -0: NUL-terminated input (FEATURE_XARGS_SUPPORT_ZERO_TERM) [Y/n/?] y
+*
+* Init Utilities
+*
+bootchartd (BOOTCHARTD) [N/y/?] n
+poweroff, halt, and reboot (HALT) [N/y/?] n
+init (INIT) [N/y/?] n
+mesg (MESG) [N/y/?] n
+*
+* Login/Password Management Utilities
+*
+add-shell (ADD_SHELL) [N/y/?] n
+remove-shell (REMOVE_SHELL) [N/y/?] n
+Support for shadow passwords (FEATURE_SHADOWPASSWDS) [N/y/?] n
+Use internal password and group functions rather than system functions (USE_BB_PWD_GRP) [Y/n/?] y
+Use internal crypt functions (USE_BB_CRYPT) [N/y/?] n
+adduser (ADDUSER) [N/y/?] n
+  Enable sanity check on user/group names in adduser and addgroup (FEATURE_CHECK_NAMES) [N/y/?] n
+  First valid system uid or gid for adduser and addgroup (FIRST_SYSTEM_ID) [100] 100
+  Last valid system uid or gid for adduser and addgroup (LAST_SYSTEM_ID) [999] 999
+addgroup (ADDGROUP) [Y/n/?] y
+  Enable long options (FEATURE_ADDGROUP_LONG_OPTIONS) [Y/n/?] y
+  Support for adding users to groups (FEATURE_ADDUSER_TO_GROUP) [Y/n/?] y
+deluser (DELUSER) [N/y/?] n
+delgroup (DELGROUP) [Y/n/?] y
+  Support for removing users from groups (FEATURE_DEL_USER_FROM_GROUP) [Y/n/?] y
+getty (GETTY) [N/y/?] n
+login (LOGIN) [N/y/?] n
+passwd (PASSWD) [N/y/?] n
+cryptpw (CRYPTPW) [N/y/?] n
+chpasswd (CHPASSWD) [N/y/?] n
+su (SU) [N/y/?] n
+sulogin (SULOGIN) [N/y/?] n
+vlock (VLOCK) [N/y/?] n
+*
+* Linux Ext2 FS Progs
+*
+chattr (CHATTR) [Y/n/?] y
+fsck (FSCK) [N/y/?] n
+tune2fs (TUNE2FS) [N/y/?] n
+*
+* Linux System Utilities
+*
+blockdev (BLOCKDEV) [N/y/?] n
+rev (REV) [Y/n/?] y
+flock (FLOCK) [Y/n/?] y
+fsck_minix (FSCK_MINIX) [N/y/?] n
+getopt (GETOPT) [Y/n/?] y
+  Support option -l (FEATURE_GETOPT_LONG) [Y/n/?] y
+hexdump (HEXDUMP) [Y/n/?] y
+  Support -R, reverse of 'hexdump -Cv' (FEATURE_HEXDUMP_REVERSE) [N/y/?] n
+  hd (HD) [Y/n/?] y
+ipcrm (IPCRM) [N/y/?] n
+lspci (LSPCI) [Y/n/?] y
+lsusb (LSUSB) [Y/n/?] y
+mkswap (MKSWAP) [N/y/?] n
+more (MORE) [Y/n/?] y
+rdate (RDATE) [N/y/?] n
+rdev (RDEV) [N/y/?] n
+readprofile (READPROFILE) [Y/n/?] y
+script (SCRIPT) [N/y/?] n
+scriptreplay (SCRIPTREPLAY) [Y/n/?] y
+*
+* Miscellaneous Utilities
+*
+bbconfig (BBCONFIG) [N/y/?] n
+chat (CHAT) [N/y/?] n
+chrt (CHRT) [Y/n/?] y
+crond (CROND) [N/y/?] n
+  crond spool directory (FEATURE_CROND_DIR) [/var/spool/cron] /var/spool/cron
+crontab (CRONTAB) [Y/n/?] y
+dc (DC) [Y/n/?] y
+  Enable power and exp functions (requires libm) (FEATURE_DC_LIBM) [Y/n/?] y
+devmem (DEVMEM) [N/y/?] n
+flashcp (FLASHCP) [N/y/?] n
+flash_lock (FLASH_LOCK) [N/y/?] n
+flash_unlock (FLASH_UNLOCK) [N/y/?] n
+flash_eraseall (FLASH_ERASEALL) [N/y/?] n
+inotifyd (INOTIFYD) [N/y/?] n
+less (LESS) [Y/n/?] y
+  Max number of input lines less will try to eat (FEATURE_LESS_MAXLINES) [9999999] 9999999
+  Enable bracket searching (FEATURE_LESS_BRACKETS) [Y/n/?] y
+  Enable extra flags (FEATURE_LESS_FLAGS) [Y/n/?] y
+  Enable marks (FEATURE_LESS_MARKS) [Y/n/?] y
+  Enable regular expressions (FEATURE_LESS_REGEXP) [Y/n/?] y
+  Enable automatic resizing on window size changes (FEATURE_LESS_WINCH) [N/y/?] n
+  Enable flag changes ('-' command) (FEATURE_LESS_DASHCMD) [N/y/?] n
+makedevs (MAKEDEVS) [N/y/?] n
+man (MAN) [N/y/?] n
+microcom (MICROCOM) [Y/n/?] y
+mountpoint (MOUNTPOINT) [N/y/?] n
+mt (MT) [N/y/?] n
+runlevel (RUNLEVEL) [N/y/?] n
+setsid (SETSID) [Y/n/?] y
+strings (STRINGS) [Y/n/?] y
+taskset (TASKSET) [N/y/?] n
+time (TIME) [N/y/?] n
+timeout (TIMEOUT) [Y/n/?] y
+ttysize (TTYSIZE) [Y/n/?] y
+volname (VOLNAME) [Y/n/?] y
+wall (WALL) [N/y/?] n
+*
+* Networking Utilities
+*
+nbd-client (NBDCLIENT) [N/y/?] n
+nc (NC) [Y/n/?] y
+  Netcat server options (-l) (NC_SERVER) [N/y/?] n
+  Netcat extensions (-eiw and filename) (NC_EXTRA) [N/y/?] n
+  Netcat 1.10 compatibility (+2.5k) (NC_110_COMPAT) [N/y/?] n
+Enable IPv6 support (FEATURE_IPV6) [N/y/?] n
+Enable Unix domain socket support (usually not needed) (FEATURE_UNIX_LOCAL) [N/y/?] n
+Verbose resolution errors (VERBOSE_RESOLUTION_ERRORS) [N/y/?] n
+dnsd (DNSD) [Y/n/?] y
+fakeidentd (FAKEIDENTD) [Y/n/?] y
+ftpd (FTPD) [Y/n/?] y
+  Enable upload commands (FEATURE_FTP_WRITE) [Y/n/?] y
+  Enable workaround for RFC-violating clients (FEATURE_FTPD_ACCEPT_BROKEN_LIST) [Y/n/?] y
+ftpget (FTPGET) [Y/n/?] y
+ftpput (FTPPUT) [Y/n/?] y
+  Enable long options in ftpget/ftpput (FEATURE_FTPGETPUT_LONG_OPTIONS) [Y/n/?] y
+hostname (HOSTNAME) [Y/n/?] y
+httpd (HTTPD) [Y/n/?] y
+  Support 'Ranges:' header (FEATURE_HTTPD_RANGES) [Y/n/?] y
+  Use sendfile system call (FEATURE_HTTPD_USE_SENDFILE) [N/y/?] n
+  Enable -u <user> option (FEATURE_HTTPD_SETUID) [N/y/?] n
+  Enable Basic http Authentication (FEATURE_HTTPD_BASIC_AUTH) [Y/n/?] y
+    Support MD5 crypted passwords for http Authentication (FEATURE_HTTPD_AUTH_MD5) [Y/n/?] y
+  Support Common Gateway Interface (CGI) (FEATURE_HTTPD_CGI) [Y/n/?] y
+    Support for running scripts through an interpreter (FEATURE_HTTPD_CONFIG_WITH_SCRIPT_INTERPR) [Y/n/?] y
+    Set REMOTE_PORT environment variable for CGI (FEATURE_HTTPD_SET_REMOTE_PORT_TO_ENV) [Y/n/?] y
+  Enable -e option (useful for CGIs written as shell scripts) (FEATURE_HTTPD_ENCODE_URL_STR) [Y/n/?] y
+  Support for custom error pages (FEATURE_HTTPD_ERROR_PAGES) [Y/n/?] y
+  Support for reverse proxy (FEATURE_HTTPD_PROXY) [Y/n/?] y
+  Support for GZIP content encoding (FEATURE_HTTPD_GZIP) [Y/n/?] y
+ifupdown (IFUPDOWN) [N/y/?] n
+inetd (INETD) [N/y/?] n
+ipcalc (IPCALC) [Y/n/?] y
+  Fancy IPCALC, more options, adds 1 kbyte (FEATURE_IPCALC_FANCY) [Y/n/?] y
+  Enable long options (FEATURE_IPCALC_LONG_OPTIONS) [Y/n/?] y
+nslookup (NSLOOKUP) [N/y/?] n
+pscan (PSCAN) [Y/n/?] y
+tcpsvd (TCPSVD) [N/y/?] n
+telnet (TELNET) [Y/n/?] y
+  Pass TERM type to remote host (FEATURE_TELNET_TTYPE) [Y/n/?] y
+  Pass USER type to remote host (FEATURE_TELNET_AUTOLOGIN) [Y/n/?] y
+telnetd (TELNETD) [Y/n/?] y
+  Support standalone telnetd (not inetd only) (FEATURE_TELNETD_STANDALONE) [Y/n/?] y
+    Support -w SEC option (inetd wait mode) (FEATURE_TELNETD_INETD_WAIT) [Y/n/?] y
+tftp (TFTP) [Y/n/?] y
+tftpd (TFTPD) [Y/n/?] y
+  *
+  * Common options for tftp/tftpd
+  *
+  Enable 'tftp get' and/or tftpd upload code (FEATURE_TFTP_GET) [Y/n/?] y
+  Enable 'tftp put' and/or tftpd download code (FEATURE_TFTP_PUT) [Y/n/?] y
+  Enable 'blksize' and 'tsize' protocol options (FEATURE_TFTP_BLOCKSIZE) [Y/n/?] y
+    Enable tftp progress meter (FEATURE_TFTP_PROGRESS_BAR) [Y/n/?] y
+  Enable debug (TFTP_DEBUG) [N/y/?] n
+udpsvd (UDPSVD) [N/y/?] n
+wget (WGET) [Y/n/?] y
+  Enable a nifty process meter (+2k) (FEATURE_WGET_STATUSBAR) [Y/n/?] y
+  Enable HTTP authentication (FEATURE_WGET_AUTHENTICATION) [Y/n/?] y
+  Enable long options (FEATURE_WGET_LONG_OPTIONS) [Y/n/?] y
+  Enable read timeout option -T SEC (FEATURE_WGET_TIMEOUT) [Y/n/?] y
+*
+* Print Utilities
+*
+lpd (LPD) [N/y/?] n
+lpr (LPR) [Y/n/?] y
+lpq (LPQ) [Y/n/?] y
+*
+* Mail Utilities
+*
+makemime (MAKEMIME) [N/y/?] n
+popmaildir (POPMAILDIR) [N/y/?] n
+reformime (REFORMIME) [N/y/?] n
+sendmail (SENDMAIL) [N/y/?] n
+*
+* Process Utilities
+*
+iostat (IOSTAT) [Y/n/?] y
+mpstat (MPSTAT) [Y/n/?] y
+pmap (PMAP) [Y/n/?] y
+powertop (POWERTOP) [Y/n/?] y
+smemcap (SMEMCAP) [Y/n/?] y
+fuser (FUSER) [N/y/?] n
+kill (KILL) [Y/n/?] y
+  killall (KILLALL) [Y/n/?] y
+  killall5 (KILLALL5) [Y/n] y
+nmeter (NMETER) [N/y/?] n
+pgrep (PGREP) [Y/n/?] y
+pidof (PIDOF) [N/y/?] n
+pkill (PKILL) [Y/n/?] y
+ps (PS) [Y/n/?] y
+  Enable wide output option (-w) (FEATURE_PS_WIDE) [Y/n/?] y
+renice (RENICE) [Y/n/?] y
+sysctl (BB_SYSCTL) [Y/n/?] y
+top (TOP) [N/y/?] n
+  Support for showing threads in ps/top (FEATURE_SHOW_THREADS) [Y/n/?] y
+watch (WATCH) [Y/n/?] y
+*
+* Runit Utilities
+*
+runsv (RUNSV) [N/y/?] n
+runsvdir (RUNSVDIR) [N/y/?] n
+sv (SV) [N/y/?] n
+svlogd (SVLOGD) [N/y/?] n
+chpst (CHPST) [N/y/?] n
+setuidgid (SETUIDGID) [N/y/?] n
+envuidgid (ENVUIDGID) [N/y/?] n
+envdir (ENVDIR) [N/y/?] n
+softlimit (SOFTLIMIT) [N/y/?] n
+*
+* Shells
+*
+ash (ASH) [Y/n/?] y
+  bash-compatible extensions (ASH_BASH_COMPAT) [N/y/?] n
+  Job control (ASH_JOB_CONTROL) [N/y/?] n
+  alias support (ASH_ALIAS) [N/y/?] n
+  Builtin getopt to parse positional parameters (ASH_GETOPTS) [N/y/?] n
+  Builtin version of 'echo' (ASH_BUILTIN_ECHO) [N/y/?] n
+  Builtin version of 'printf' (ASH_BUILTIN_PRINTF) [N/y/?] n
+  Builtin version of 'test' (ASH_BUILTIN_TEST) [N/y/?] n
+  'command' command to override shell builtins (ASH_CMDCMD) [N/y/?] n
+  Check for new mail on interactive shells (ASH_MAIL) [N/y/?] n
+  Optimize for size instead of speed (ASH_OPTIMIZE_FOR_SIZE) [N/y/?] n
+  Pseudorandom generator and $RANDOM variable (ASH_RANDOM_SUPPORT) [N/y/?] n
+  Expand prompt string (ASH_EXPAND_PRMT) [N/y/?] n
+cttyhack (CTTYHACK) [N/y/?] n
+hush (HUSH) [N/y/?] n
+msh (deprecated: aliased to hush) (MSH) [N/y/?] n
+Choose which shell is aliased to 'sh' name
+> 1. ash (FEATURE_SH_IS_ASH)
+  2. none (FEATURE_SH_IS_NONE)
+choice[1-2?]: 1
+Choose which shell is aliased to 'bash' name
+  1. ash (FEATURE_BASH_IS_ASH)
+> 2. none (FEATURE_BASH_IS_NONE)
+choice[1-2?]: 2
+POSIX math support (SH_MATH_SUPPORT) [Y/n/?] y
+  Extend POSIX math support to 64 bit (SH_MATH_SUPPORT_64) [Y/n/?] y
+Hide message on interactive shell startup (FEATURE_SH_EXTRA_QUIET) [N/y/?] n
+*
+* System Logging Utilities
+*
+syslogd (SYSLOGD) [Y/n/?] y
+  Rotate message files (FEATURE_ROTATE_LOGFILE) [Y/n/?] y
+  Remote Log support (FEATURE_REMOTE_LOG) [Y/n/?] y
+  Support -D (drop dups) option (FEATURE_SYSLOGD_DUP) [N/y/?] n
+  Read buffer size in bytes (FEATURE_SYSLOGD_READ_BUFFER_SIZE) [256] 256
+  Circular Buffer support (FEATURE_IPC_SYSLOG) [Y/n/?] y
+    Circular buffer size in Kbytes (minimum 4KB) (FEATURE_IPC_SYSLOG_BUFFER_SIZE) [16] 16
+    logread (LOGREAD) [Y/n/?] y
+      Double buffering (FEATURE_LOGREAD_REDUCED_LOCKING) [Y/n/?] y
+klogd (KLOGD) [N/y/?] n
+logger (LOGGER) [Y/n/?] y
+===>  Building for busybox-1.18.4
+  SPLIT   include/autoconf.h -> include/config/*
+  GEN     include/bbconfigopts.h
+  HOSTCC  applets/usage
+  GEN     include/usage_compressed.h
+  HOSTCC  applets/applet_tables
+  GEN     include/applet_tables.h
+  CC      applets/applets.o
+  LD      applets/built-in.o
+  HOSTCC  applets/usage_pod
+  LD      archival/built-in.o
+  CC      archival/ar.o
+  CC      archival/bbunzip.o
+  CC      archival/bzip2.o
+  CC      archival/cpio.o
+  CC      archival/gzip.o
+  CC      archival/lzop.o
+  CC      archival/rpm.o
+  CC      archival/rpm2cpio.o
+  CC      archival/tar.o
+  CC      archival/unzip.o
+archival/unzip.c: In function 'unzip_create_leading_dirs':
+archival/unzip.c:225: warning: implicit declaration of function 'dirname'
+archival/unzip.c:225: warning: passing argument 1 of 'bb_make_directory' makes pointer from integer without a cast
+  AR      archival/lib.a
+  LD      archival/libarchive/built-in.o
+  CC      archival/libarchive/data_align.o
+  CC      archival/libarchive/data_extract_all.o
+  CC      archival/libarchive/data_extract_to_command.o
+  CC      archival/libarchive/data_extract_to_stdout.o
+  CC      archival/libarchive/data_skip.o
+  CC      archival/libarchive/decompress_bunzip2.o
+  CC      archival/libarchive/decompress_uncompress.o
+  CC      archival/libarchive/decompress_unlzma.o
+  CC      archival/libarchive/decompress_unxz.o
+  CC      archival/libarchive/decompress_unzip.o
+  CC      archival/libarchive/filter_accept_all.o
+  CC      archival/libarchive/filter_accept_list.o
+  CC      archival/libarchive/filter_accept_reject_list.o
+  CC      archival/libarchive/find_list_entry.o
+  CC      archival/libarchive/get_header_ar.o
+  CC      archival/libarchive/get_header_cpio.o
+  CC      archival/libarchive/get_header_tar.o
+  CC      archival/libarchive/get_header_tar_bz2.o
+  CC      archival/libarchive/get_header_tar_gz.o
+  CC      archival/libarchive/get_header_tar_lzma.o
+  CC      archival/libarchive/header_list.o
+  CC      archival/libarchive/header_skip.o
+  CC      archival/libarchive/header_verbose_list.o
+  CC      archival/libarchive/init_handle.o
+  CC      archival/libarchive/lzo1x_1.o
+  CC      archival/libarchive/lzo1x_1o.o
+  CC      archival/libarchive/lzo1x_d.o
+  CC      archival/libarchive/open_transformer.o
+  CC      archival/libarchive/seek_by_jump.o
+  CC      archival/libarchive/seek_by_read.o
+  CC      archival/libarchive/unpack_ar_archive.o
+  AR      archival/libarchive/lib.a
+  LD      console-tools/built-in.o
+  CC      console-tools/clear.o
+  CC      console-tools/reset.o
+  CC      console-tools/resize.o
+  AR      console-tools/lib.a
+  LD      coreutils/built-in.o
+  CC      coreutils/basename.o
+  CC      coreutils/cal.o
+  CC      coreutils/cat.o
+  CC      coreutils/catv.o
+  CC      coreutils/chgrp.o
+  CC      coreutils/chmod.o
+  CC      coreutils/chown.o
+  CC      coreutils/chroot.o
+  CC      coreutils/cksum.o
+  CC      coreutils/comm.o
+  CC      coreutils/cp.o
+coreutils/cp.c: In function 'cp_main':
+coreutils/cp.c:168: warning: implicit declaration of function 'dirname'
+coreutils/cp.c:168: warning: assignment makes pointer from integer without a cast
+  CC      coreutils/cut.o
+  CC      coreutils/dd.o
+  CC      coreutils/dirname.o
+coreutils/dirname.c: In function 'dirname_main':
+coreutils/dirname.c:20: warning: implicit declaration of function 'dirname'
+coreutils/dirname.c:20: warning: passing argument 1 of 'puts' makes pointer from integer without a cast
+  CC      coreutils/dos2unix.o
+  CC      coreutils/du.o
+  CC      coreutils/echo.o
+  CC      coreutils/env.o
+coreutils/env.c: In function 'env_main':
+coreutils/env.c:60: warning: statement with no effect
+  CC      coreutils/expand.o
+  CC      coreutils/expr.o
+  CC      coreutils/false.o
+  CC      coreutils/fold.o
+  CC      coreutils/fsync.o
+  CC      coreutils/head.o
+  CC      coreutils/hostid.o
+  CC      coreutils/id.o
+  CC      coreutils/install.o
+coreutils/install.c: In function 'install_main':
+coreutils/install.c:164: warning: implicit declaration of function 'dirname'
+coreutils/install.c:164: warning: passing argument 1 of 'bb_make_directory' makes pointer from integer without a cast
+  CC      coreutils/length.o
+  CC      coreutils/ln.o
+  CC      coreutils/logname.o
+  CC      coreutils/ls.o
+  CC      coreutils/md5_sha1_sum.o
+  CC      coreutils/mkdir.o
+  CC      coreutils/mkfifo.o
+  CC      coreutils/mv.o
+  CC      coreutils/nice.o
+  CC      coreutils/nohup.o
+  CC      coreutils/od.o
+  CC      coreutils/printenv.o
+  CC      coreutils/printf.o
+  CC      coreutils/pwd.o
+  CC      coreutils/readlink.o
+  CC      coreutils/realpath.o
+  CC      coreutils/rm.o
+  CC      coreutils/rmdir.o
+coreutils/rmdir.c: In function 'rmdir_main':
+coreutils/rmdir.c:57: warning: implicit declaration of function 'dirname'
+coreutils/rmdir.c:57: warning: assignment makes pointer from integer without a cast
+  CC      coreutils/seq.o
+  CC      coreutils/sleep.o
+  CC      coreutils/sort.o
+  CC      coreutils/split.o
+  CC      coreutils/sum.o
+  CC      coreutils/sync.o
+  CC      coreutils/tail.o
+  CC      coreutils/tee.o
+  CC      coreutils/test.o
+  CC      coreutils/test_ptr_hack.o
+  CC      coreutils/touch.o
+  CC      coreutils/tr.o
+  CC      coreutils/true.o
+  CC      coreutils/tty.o
+  CC      coreutils/uname.o
+  CC      coreutils/uniq.o
+  CC      coreutils/usleep.o
+  CC      coreutils/uudecode.o
+  CC      coreutils/uuencode.o
+  CC      coreutils/wc.o
+  CC      coreutils/whoami.o
+  CC      coreutils/yes.o
+  AR      coreutils/lib.a
+  LD      coreutils/libcoreutils/built-in.o
+  CC      coreutils/libcoreutils/cp_mv_stat.o
+  CC      coreutils/libcoreutils/getopt_mk_fifo_nod.o
+  AR      coreutils/libcoreutils/lib.a
+  LD      debianutils/built-in.o
+  CC      debianutils/mktemp.o
+  CC      debianutils/pipe_progress.o
+  CC      debianutils/run_parts.o
+  CC      debianutils/which.o
+  AR      debianutils/lib.a
+  LD      e2fsprogs/built-in.o
+  CC      e2fsprogs/chattr.o
+  CC      e2fsprogs/e2fs_lib.o
+  AR      e2fsprogs/lib.a
+  LD      editors/built-in.o
+  CC      editors/awk.o
+editors/awk.c:235:1: warning: "PRIMASK" redefined
+In file included from include/libbb.h:40,
+                 from editors/awk.c:10:
+/usr/include/sys/param.h:192:1: warning: this is the location of the previous definition
+  CC      editors/cmp.o
+  CC      editors/diff.o
+  CC      editors/ed.o
+  CC      editors/patch.o
+  CC      editors/sed.o
+  CC      editors/vi.o
+  AR      editors/lib.a
+  LD      findutils/built-in.o
+  CC      findutils/find.o
+  CC      findutils/grep.o
+  CC      findutils/xargs.o
+  AR      findutils/lib.a
+  LD      init/built-in.o
+  AR      init/lib.a
+  LD      libbb/built-in.o
+  CC      libbb/appletlib.o
+  CC      libbb/ask_confirmation.o
+  CC      libbb/bb_askpass.o
+  CC      libbb/bb_basename.o
+  CC      libbb/bb_bswap_64.o
+  CC      libbb/bb_do_delay.o
+  CC      libbb/bb_pwd.o
+  CC      libbb/bb_qsort.o
+  CC      libbb/bb_strtonum.o
+  CC      libbb/change_identity.o
+  CC      libbb/chomp.o
+  CC      libbb/compare_string_array.o
+  CC      libbb/concat_path_file.o
+  CC      libbb/concat_subpath_file.o
+  CC      libbb/copy_file.o
+  CC      libbb/copyfd.o
+  CC      libbb/crc32.o
+  CC      libbb/create_icmp6_socket.o
+  CC      libbb/create_icmp_socket.o
+  CC      libbb/default_error_retval.o
+  CC      libbb/device_open.o
+  CC      libbb/dump.o
+  CC      libbb/execable.o
+  CC      libbb/fclose_nonstdin.o
+  CC      libbb/fflush_stdout_and_exit.o
+  CC      libbb/fgets_str.o
+  CC      libbb/find_pid_by_name.o
+  CC      libbb/find_root_device.o
+  CC      libbb/full_write.o
+  CC      libbb/get_console.o
+  CC      libbb/get_cpu_count.o
+  CC      libbb/get_last_path_component.o
+  CC      libbb/get_line_from_file.o
+  CC      libbb/get_volsize.o
+  CC      libbb/getopt32.o
+  CC      libbb/getpty.o
+libbb/getpty.c: In function 'xgetpty':
+libbb/getpty.c:23: warning: ISO C90 forbids mixed declarations and code
+  CC      libbb/hash_md5_sha.o
+  CC      libbb/herror_msg.o
+  CC      libbb/human_readable.o
+  CC      libbb/inet_common.o
+  CC      libbb/info_msg.o
+  CC      libbb/inode_hash.o
+  CC      libbb/isdirectory.o
+  CC      libbb/kernel_version.o
+  CC      libbb/last_char_is.o
+  CC      libbb/lineedit.o
+  CC      libbb/lineedit_ptr_hack.o
+  CC      libbb/llist.o
+  CC      libbb/login.o
+  CC      libbb/make_directory.o
+  CC      libbb/makedev.o
+  CC      libbb/match_fstype.o
+  CC      libbb/messages.o
+  CC      libbb/mode_string.o
+  CC      libbb/obscure.o
+  CC      libbb/parse_config.o
+  CC      libbb/parse_mode.o
+  CC      libbb/perror_msg.o
+  CC      libbb/perror_nomsg.o
+  CC      libbb/perror_nomsg_and_die.o
+  CC      libbb/pidfile.o
+  CC      libbb/platform.o
+  CC      libbb/print_flags.o
+  CC      libbb/printable.o
+  CC      libbb/printable_string.o
+  CC      libbb/process_escape_sequence.o
+  CC      libbb/procps.o
+  CC      libbb/progress.o
+  CC      libbb/ptr_to_globals.o
+  CC      libbb/pw_encrypt.o
+  CC      libbb/read.o
+  CC      libbb/read_key.o
+  CC      libbb/read_printf.o
+  CC      libbb/recursive_action.o
+  CC      libbb/remove_file.o
+  CC      libbb/run_shell.o
+  CC      libbb/safe_gethostname.o
+  CC      libbb/safe_poll.o
+  CC      libbb/safe_strncpy.o
+  CC      libbb/safe_write.o
+  CC      libbb/setup_environment.o
+libbb/setup_environment.c: In function 'setup_environment':
+libbb/setup_environment.c:48: warning: statement with no effect
+  CC      libbb/signals.o
+  CC      libbb/simplify_path.o
+  CC      libbb/single_argv.o
+  CC      libbb/skip_whitespace.o
+  CC      libbb/speed_table.o
+libbb/speed_table.c:46: warning: large integer implicitly truncated to unsigned type
+libbb/speed_table.c:49: warning: large integer implicitly truncated to unsigned type
+libbb/speed_table.c:52: warning: large integer implicitly truncated to unsigned type
+libbb/speed_table.c:55: warning: large integer implicitly truncated to unsigned type
+  CC      libbb/str_tolower.o
+  CC      libbb/strrstr.o
+  CC      libbb/time.o
+  CC      libbb/trim.o
+  CC      libbb/u_signal_names.o
+  CC      libbb/udp_io.o
+libbb/udp_io.c: In function 'socket_want_pktinfo':
+libbb/udp_io.c:16: warning: unused parameter 'fd'
+  CC      libbb/unicode.o
+  CC      libbb/update_passwd.o
+  CC      libbb/uuencode.o
+  CC      libbb/vdprintf.o
+  CC      libbb/verror_msg.o
+  CC      libbb/vfork_daemon_rexec.o
+  CC      libbb/warn_ignoring_args.o
+  CC      libbb/wfopen.o
+  CC      libbb/wfopen_input.o
+  CC      libbb/write.o
+  CC      libbb/xatonum.o
+  CC      libbb/xconnect.o
+  CC      libbb/xfunc_die.o
+  CC      libbb/xfuncs.o
+  CC      libbb/xfuncs_printf.o
+  CC      libbb/xgetcwd.o
+  CC      libbb/xgethostbyname.o
+  CC      libbb/xreadlink.o
+  CC      libbb/xrealloc_vector.o
+  CC      libbb/xregcomp.o
+  AR      libbb/lib.a
+  LD      libpwdgrp/built-in.o
+  CC      libpwdgrp/pwd_grp.o
+  CC      libpwdgrp/uidgid_get.o
+  AR      libpwdgrp/lib.a
+  LD      loginutils/built-in.o
+  CC      loginutils/addgroup.o
+  CC      loginutils/deluser.o
+  AR      loginutils/lib.a
+  LD      mailutils/built-in.o
+  AR      mailutils/lib.a
+  LD      miscutils/built-in.o
+  CC      miscutils/chrt.o
+  CC      miscutils/crontab.o
+  CC      miscutils/dc.o
+  CC      miscutils/less.o
+miscutils/less.c: In function 'print_found':
+miscutils/less.c:633: warning: field precision should have type 'int', but argument 3 has type 'regoff_t'
+miscutils/less.c:633: warning: field precision should have type 'int', but argument 5 has type 'regoff_t'
+  CC      miscutils/microcom.o
+  CC      miscutils/setsid.o
+  CC      miscutils/strings.o
+  CC      miscutils/timeout.o
+  CC      miscutils/ttysize.o
+  CC      miscutils/volname.o
+  AR      miscutils/lib.a
+  LD      modutils/built-in.o
+  AR      modutils/lib.a
+  LD      networking/built-in.o
+  CC      networking/dnsd.o
+  CC      networking/ftpd.o
+  CC      networking/ftpgetput.o
+  CC      networking/hostname.o
+  CC      networking/httpd.o
+  CC      networking/ipcalc.o
+  CC      networking/isrv.o
+  CC      networking/isrv_identd.o
+  CC      networking/nc.o
+  CC      networking/pscan.o
+  CC      networking/telnet.o
+  CC      networking/telnetd.o
+  CC      networking/tftp.o
+  CC      networking/wget.o
+  AR      networking/lib.a
+  LD      networking/libiproute/built-in.o
+  AR      networking/libiproute/lib.a
+  LD      networking/udhcp/built-in.o
+  AR      networking/udhcp/lib.a
+  LD      printutils/built-in.o
+  CC      printutils/lpr.o
+  AR      printutils/lib.a
+  LD      procps/built-in.o
+  CC      procps/iostat.o
+  CC      procps/kill.o
+  CC      procps/mpstat.o
+  CC      procps/pgrep.o
+  CC      procps/pmap.o
+  CC      procps/powertop.o
+  CC      procps/ps.o
+  CC      procps/renice.o
+  CC      procps/smemcap.o
+  CC      procps/sysctl.o
+  CC      procps/watch.o
+  AR      procps/lib.a
+  LD      runit/built-in.o
+  AR      runit/lib.a
+  LD      selinux/built-in.o
+  AR      selinux/lib.a
+  LD      shell/built-in.o
+  CC      shell/ash.o
+  CC      shell/ash_ptr_hack.o
+  CC      shell/math.o
+  CC      shell/shell_common.o
+  AR      shell/lib.a
+  LD      sysklogd/built-in.o
+  CC      sysklogd/logread.o
+  CC      sysklogd/syslogd_and_logger.o
+  AR      sysklogd/lib.a
+  LD      util-linux/built-in.o
+  CC      util-linux/flock.o
+  CC      util-linux/getopt.o
+  CC      util-linux/hexdump.o
+  CC      util-linux/lspci.o
+  CC      util-linux/lsusb.o
+  CC      util-linux/more.o
+  CC      util-linux/readprofile.o
+  CC      util-linux/rev.o
+  CC      util-linux/scriptreplay.o
+  AR      util-linux/lib.a
+  LD      util-linux/volume_id/built-in.o
+  AR      util-linux/volume_id/lib.a
+  LINK    busybox_unstripped
+Trying libraries: crypt m
+ Library crypt is needed, can't exclude it (yet)
+ Library m is needed, can't exclude it (yet)
+Final link with: crypt m
+  DOC     busybox.pod
+  DOC     BusyBox.txt
+pod2text: not found
+gmake: [docs/BusyBox.txt] Error 127 (ignored)
+  DOC     busybox.1
+pod2man: not found
+gmake: [docs/busybox.1] Error 127 (ignored)
+pod2html: not found
+gmake: [docs/busybox.net/BusyBox.html] Error 127 (ignored)
+  DOC     BusyBox.html
+cp: docs/busybox.net/BusyBox.html: No such file or directory
+gmake: [docs/BusyBox.html] Error 1 (ignored)
+Enter your password: gr3p_1s_@_p0w3rful_comm@nd
+================================================================
+====================<phase 5: make test>====================
+make: don't know how to make regression-test(continuing)
+================================================================
+====================<phase 6: make install>====================
+add_pkg
+===>  Installing for busybox-1.18.4
+===>   Generating temporary packing list
+===>  Checking if sysutils/busybox already installed
+install  -s -o root -g wheel -m 555 /work/a/ports/sysutils/busybox/work/busybox-1.18.4/busybox /usr/local/bin
+===>   Registering installation for busybox-1.18.4
+===> SECURITY REPORT: 
+      This port has installed the following files which may act as network
+      servers and may therefore pose a remote security risk to the system.
+/usr/local/bin/busybox
+
+      If there are vulnerabilities in these programs there may be a security
+      risk to the system. FreeBSD makes no guarantee about the security of
+      ports included in the Ports Collection. Please type 'make deinstall'
+      to deinstall the port if this is a concern.
+
+      For more information, and contact details about the security
+      status of this software, see the following webpage: 
+http://www.busybox.net/
+================================================================
+====================<phase 7: make package>====================
+===>  Building package for busybox-1.18.4
+Deleting busybox-1.18.4
+
+=== Checking filesystem state
+Deleting gsed-4.2.1_2
+Deleting gmake-3.81_4
+Deleting gettext-0.18.1.1
+Deleting libiconv-1.13.1_1
+
+=== Checking filesystem state after all packages deleted
+================================================================
+build of /usr/ports/sysutils/busybox ended at Sun Mar 13 10:08:05 UTC 2011
