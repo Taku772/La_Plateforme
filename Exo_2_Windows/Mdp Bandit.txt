@@ -1,5 +1,0 @@
-SSH : bandit.labs.overthewire.org
-MDP Bandit : 
-
-Level 1 : ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If (cat readme)
-Level 2 : 
