@@ -38,3 +38,7 @@ Write-Host "[+] Simulation terminee - Fichiers crees dans $ransomDir" -Foregroun
 
 # Optionnel : Ouvrir le README
 Start-Process notepad (Join-Path $ransomDir "README.txt")
+
+# Affiche une fenêtre popup
+Add-Type -AssemblyName System.Windows.Forms
+[System.Windows.Forms.MessageBox]::Show("BadUSB a execute son code avec succes !", "Simulation", "OK", "Information")
