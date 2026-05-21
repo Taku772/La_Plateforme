@@ -1,14 +1,25 @@
-# payload.ps1
-# Ce script sera exécuté sur la machine cible
+# ============================================================
+# POC Ransomware Simulator - Version PowerShell
+# À utiliser UNIQUEMENT en VM isolée - Usage éducatif uniquement
+# ============================================================
 
-Write-Host "[+] Simulation de ransomware - Debut" -ForegroundColor Red
+# ===== ÉTAPE 1 : S'exécuter en administrateur =====
+Write-Host "[*] Demarrage de la simulation..." -ForegroundColor Cyan
 
-# Creer un dossier de test sur le Bureau
-$desktop = [Environment]::GetFolderPath("Desktop")
-$ransomDir = Join-Path $desktop "README_RANSOMWARE"
-New-Item -Path $ransomDir -ItemType Directory -Force | Out-Null
+# Vérifier si on est administrateur, sinon se relancer
+if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+    Write-Host "[*] Relance en administrateur..." -ForegroundColor Yellow
+    Start-Process powershell.exe -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
+    exit
+}
 
-# Creer le message de rancon
+# ===== ÉTAPE 2 : Créer le README de rançon =====
+Write-Host "[*] Creation du dossier README_RANSOMWARE..." -ForegroundColor Cyan
+
+Set-Location -Path "$env:USERPROFILE\Desktop"
+New-Item -Path 'README_RANSOMWARE' -ItemType Directory -Force | Out-Null
+
+# Créer le message de rançon
 $message = @"
 ==========================================
      ATTENTION - SIMULATION RANSOMWARE
@@ -18,27 +29,61 @@ Ceci est une DEMONSTRATION pedagogique.
 
 Dans un cas reel :
 - Vos fichiers seraient chiffres
+- Leur extension serait modifiee
 - Une rancon serait exigee
 
-AUCUN fichier reel n'a ete modifie.
+Dans cette simulation, AUCUN fichier reel
+n'a ete modifie de facon permanente.
 
 ==========================================
      PROTEGEZ-VOUS CONTRE LES BAD USB
 ==========================================
 "@
 
-$message | Out-File -FilePath (Join-Path $ransomDir "README.txt") -Encoding UTF8
+$message | Out-File -FilePath 'README_RANSOMWARE\README.txt' -Encoding UTF8
+Write-Host "[+] README.txt cree" -ForegroundColor Green
 
-# Creer des fichiers de test
-1..3 | ForEach-Object {
-    "Ceci est un document test $_" | Out-File -FilePath (Join-Path $ransomDir "document_test_$_.txt") -Encoding UTF8
+# ===== ÉTAPE 3 : Créer des fichiers de test =====
+Write-Host "[*] Creation des fichiers de test..." -ForegroundColor Cyan
+
+Set-Location -Path "$env:USERPROFILE\Desktop\README_RANSOMWARE"
+
+"Les IP Serveur" | Out-File -FilePath 'document_test_1.txt' -Encoding UTF8
+"Les MDP ADMIN" | Out-File -FilePath 'document_test_2.docx' -Encoding UTF8
+"Les comptes bancaire" | Out-File -FilePath 'document_test_3.xlsx' -Encoding UTF8
+Write-Host "[+] 3 fichiers de test crees" -ForegroundColor Green
+
+# ===== ÉTAPE 4 : "Chiffrer" et renommer les fichiers =====
+Write-Host "[*] Simulation du chiffrement en cours..." -ForegroundColor Cyan
+
+Get-ChildItem -File | ForEach-Object {
+    # Lecture du contenu original
+    $content = Get-Content $_.FullName -Raw
+    
+    # Simple transformation pour simuler le chiffrement (ROT13)
+    $encrypted = -join ($content.ToCharArray() | ForEach-Object {
+        if ($_ -match '[A-Za-z]') {
+            if ($_ -match '[A-Z]') { $offset = 65 } else { $offset = 97 }
+            [char]( ( ($_ - $offset) + 13 ) % 26 + $offset )
+        } else { $_ }
+    })
+    
+    # Écriture du contenu "chiffré"
+    Set-Content -Path $_.FullName -Value $encrypted -Encoding UTF8
+    
+    # Changement de l'extension pour simuler le blocage
+    $newName = $_.BaseName + '.locked'
+    Rename-Item -Path $_.FullName -NewName $newName
+    
+    Write-Host "    -> Chiffre : $($_.Name) -> $newName" -ForegroundColor Gray
 }
 
-Write-Host "[+] Simulation terminee - Fichiers crees dans $ransomDir" -ForegroundColor Green
+Write-Host "[+] Chiffrement et renommage termines" -ForegroundColor Green
 
-# Optionnel : Ouvrir le README
-Start-Process notepad (Join-Path $ransomDir "README.txt")
+# ===== ÉTAPE 5 : Ouvrir le README pour le message =====
+Write-Host "[*] Ouverture du README..." -ForegroundColor Cyan
+Start-Process notepad.exe -ArgumentList "README_RANSOMWARE\README.txt"
 
-# Affiche une fenêtre popup
-Add-Type -AssemblyName System.Windows.Forms
-[System.Windows.Forms.MessageBox]::Show("BadUSB a execute son code avec succes !", "Simulation", "OK", "Information")
+# ===== ÉTAPE 6 : Fin =====
+Write-Host "[*] Simulation terminee !" -ForegroundColor Green
+Write-Host "[+] Dossier : $env:USERPROFILE\Desktop\README_RANSOMWARE" -ForegroundColor Cyan
